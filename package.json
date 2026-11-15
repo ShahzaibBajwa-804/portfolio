@@ -1,0 +1,8 @@
+{
+  "name": "shahzaib-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio of Shahzaib — zero-dependency static site with a small contact API.",
+  "private": true,
+  "scripts": { "start": "node server.js", "test": "node --test \"test/*.test.js\"", "build:cv": "node scripts/build-cv.js" },
+  "engines": { "node": ">=18" }
+}
