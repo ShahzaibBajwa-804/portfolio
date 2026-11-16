@@ -1,31 +1,41 @@
-# Shahzaib — Portfolio
+# Portfolio
 
-Personal portfolio of Shahzaib Bajwa, a BS Software Engineering student at UMT Lahore. The projects shown on the site are my own AI-assisted development (Claude Code): I direct the work, review the code and test it.
+Personal portfolio of Shahzaib Bajwa, a BS Software Engineering student at UMT Lahore.
 
-Premium dark-theme developer portfolio. Plain HTML/CSS/JS (no frameworks, no runtime dependencies) plus a tiny Node server for the contact form.
+Live site: https://shahzaibbajwa-804.github.io/portfolio/
 
-## Run locally
-```bash
-npm start            # http://localhost:3000  (PORT=4000 npm start to change)
-npm test             # unit + server tests (Node >= 18)
-```
+## About this site
 
-## Configure (one file: `js/config.js`)
-Set `email`, `github`, `linkedin` and per-project `live`/`repo` URLs. Anything left as `""` is hidden automatically. Do not commit private phone numbers.
+A single-page, framework-free site written in plain HTML, CSS and JavaScript. It has no build step and no runtime dependencies, so it deploys as-is to GitHub Pages. It follows the visitor's light or dark colour preference, adapts to phone, tablet and desktop widths, and respects reduced-motion settings.
 
-## Contact form
-- **Bundled server:** `POST /api/contact` validates input (honeypot, length/format checks, 5 msgs / 10 min per IP) and appends to `data/messages.jsonl` (git-ignored). Read it with `cat data/messages.jsonl`.
-- **Static hosting (Netlify, GitHub Pages, Vercel):** set `contactEndpoint` in `js/config.js` to a Formspree-style URL. If sending fails, the form offers a `mailto:` fallback when `email` is set.
-
-## CV
-The CV PDF is not included in this repository. `scripts/cv.html` is the source; generate a PDF from it (`npm i -D playwright && npm run build:cv`) and add it as `assets/Shahzaib-CV.pdf` only after checking it for private data.
+The contact form composes an email in the visitor's mail app. Nothing is stored or sent by the page itself.
 
 ## Structure
+
 ```
-index.html        semantic page + SEO/OpenGraph/JSON-LD
-css/styles.css    design tokens, layout, responsive, reduced-motion
-js/config.js      your links (edit this)
-js/projects.js    project + skill content
-js/main.js        nav, reveals, modal, skills, GitHub, form
-server.js, lib/   static server + contact API (tested in test/)
+index.html        page content, metadata and structured data
+css/styles.css    layout, typography, light and dark themes
+js/main.js        mobile menu, scroll reveal, email form
+assets/           portrait, favicon, social preview image
+server.js, lib/   optional local server with a small contact endpoint
+test/             tests for the contact validation and endpoint
 ```
+
+## Run locally
+
+Requires Node.js 18 or newer. There is nothing to install.
+
+```bash
+npm start      # serves the site at http://localhost:3000
+npm test       # runs the test suite
+```
+
+Set `PORT` to use a different port. The local server also exposes `POST /api/contact`, which validates a message and appends it to `data/messages.jsonl` (git-ignored). The published site does not use it.
+
+## Deployment
+
+GitHub Pages serves the `main` branch from the repository root.
+
+## Status
+
+Complete and maintained. Project descriptions are updated as my own repositories become public.
