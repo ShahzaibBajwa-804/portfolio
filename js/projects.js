@@ -2,7 +2,7 @@
 window.PROJECTS = [
   {
     id: "noozaib", name: "Noozaib Fragrances", category: "E-commerce / Full-Stack Development",
-    kind: "Pre-launch", accent: "#5b8cff",
+    kind: "Pre-launch", accent: "#5b8cff", shot: "assets/shots/noozaib-home.jpg",
     summary: "A fragrance e-commerce application for the Pakistani market with a storefront, customer accounts and an admin area.",
     description: "Noozaib Fragrances covers the path from browsing a categorised catalogue to placing and tracking an order, with admin tools for running the shop. Much of the work went into the parts that make a shop safe to launch: input validation, rate limiting, session handling and a thorough automated test suite.",
     features: [
