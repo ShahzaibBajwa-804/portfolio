@@ -367,3 +367,17 @@ body.modal-open { overflow: hidden; }
 .avail { margin-top: 22px; padding: 18px 20px; border-left: 3px solid var(--blue); background: var(--surface); border-radius: 0 14px 14px 0; font-size: .95rem; }
 .avail p + p { color: var(--muted); margin-top: 4px; }
 @media (max-width: 960px) { .exp { grid-template-columns: 1fr; gap: 36px; } .now { position: static; } }
+
+
+/* ---- client-focused additions ---- */
+.services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.svc { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 28px; transition: border-color .3s, transform .3s var(--ease); }
+.svc:hover { border-color: rgba(108,155,255,.4); transform: translateY(-3px); }
+.svc h3 { font-size: 1.2rem; margin-bottom: 12px; }
+.svc p { color: #c3c7d6; }
+.svc .svc__ev { margin-top: 16px; font: .8rem var(--mono); color: var(--blue); }
+.pcard__shot { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 22px; background: var(--surface); }
+.modal__shot { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 12px; border: 1px solid var(--line); margin: 6px 0 22px; }
+.field select { width: 100%; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--text); font: inherit; }
+.field select:focus { outline: 2px solid var(--blue); outline-offset: 2px; }
+@media (max-width: 760px) { .services { grid-template-columns: 1fr; } }

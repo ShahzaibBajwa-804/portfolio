@@ -100,6 +100,7 @@
       "aria-haspopup": "dialog", "aria-label": p.name + " — view project details",
       style: "--ac:" + p.accent + ";--rd:" + (i % 2) * 100 + "ms"
     }, [
+      p.shot ? el("img", { class: "pcard__shot", src: p.shot, alt: p.name + " screenshot", loading: "lazy", width: "1280", height: "800" }) : null,
       el("div", { class: "pcard__top" }, [el("span", { class: "pcard__num", text: pad(i + 1) }), el("span", { class: "tag", text: p.kind })]),
       el("h3", { text: p.name }),
       el("p", { class: "pcard__cat", text: p.category }),
@@ -135,6 +136,7 @@
     bp.addEventListener("click", function () { renderProject((idx + PROJECTS.length - 1) % PROJECTS.length); history.replaceState(null, "", "#project-" + PROJECTS[current].id); focusTitle(); });
     bn.addEventListener("click", function () { renderProject((idx + 1) % PROJECTS.length); history.replaceState(null, "", "#project-" + PROJECTS[current].id); focusTitle(); });
     [close,
+      p.shot ? el("img", { class: "modal__shot", src: p.shot, alt: p.name + " screenshot", width: "1280", height: "800" }) : null,
       el("span", { class: "tag" }, [document.createTextNode(p.kind)]),
       el("h3", { id: "modal-title", tabindex: "-1", text: p.name }),
       el("p", { class: "pcard__cat", text: p.category }),
@@ -215,7 +217,7 @@
   $("#year").textContent = new Date().getFullYear();
 
   /* ---------- GitHub feed ---------- */
-  if (ghUser) {
+  if (ghUser && $("#github-content")) {
     var box = $("#github-content");
     box.textContent = "";
     box.appendChild(el("p", { class: "muted", text: "Loading repositories…" }));
@@ -271,11 +273,11 @@
     e.preventDefault();
     var bad = Object.keys(RULES).filter(function (n) { return !check(n); });
     if (bad.length) { form.elements[bad[0]].focus(); status("bad", "Please fix the highlighted fields."); return; }
-    var payload = { name: form.elements.name.value.trim(), email: form.elements.email.value.trim(), message: form.elements.message.value.trim(), website: form.elements.website.value };
-    var mailto = S.email ? "mailto:" + S.email + "?subject=" + encodeURIComponent("Portfolio enquiry from " + payload.name) + "&body=" + encodeURIComponent(payload.message) : "";
+    var payload = { type: form.elements.type.value, name: form.elements.name.value.trim(), email: form.elements.email.value.trim(), message: form.elements.message.value.trim(), website: form.elements.website.value };
+    var mailto = S.email ? "mailto:" + S.email + "?subject=" + encodeURIComponent("Project enquiry (" + payload.type + ") from " + payload.name) + "&body=" + encodeURIComponent(payload.message) : "";
     if (!S.contactEndpoint) {
-      var body = payload.message + "\n\n" + payload.name + " <" + payload.email + ">";
-      var composed = "mailto:" + S.email + "?subject=" + encodeURIComponent("Portfolio enquiry from " + payload.name) + "&body=" + encodeURIComponent(body);
+      var body = "Project type: " + payload.type + "\n\n" + payload.message + "\n\n" + payload.name + " <" + payload.email + ">";
+      var composed = "mailto:" + S.email + "?subject=" + encodeURIComponent("Project enquiry (" + payload.type + ") from " + payload.name) + "&body=" + encodeURIComponent(body);
       status("ok", "Opening your email app. If nothing opens,", composed);
       window.location.href = composed;
       return;
