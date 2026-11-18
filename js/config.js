@@ -9,7 +9,7 @@ window.SITE = {
   contactEndpoint: "",
   // Add live and repo URLs when those repositories are public.
   projects: {
-    noozaib:   { live: "", repo: "" },
+    noozaib:   { live: "https://shahzaibbajwa.pythonanywhere.com", repo: "" },
     shoeadda:  { live: "", repo: "" },
     goldai:    { live: "", repo: "" },
     youtube:   { live: "", repo: "" }

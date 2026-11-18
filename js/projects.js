@@ -18,7 +18,7 @@ window.PROJECTS = [
     stack: ["Python", "Flask", "SQLAlchemy", "PostgreSQL", "Alembic", "Jinja2", "JavaScript", "pytest"],
     status: "Pre-launch. Production hardening is done and covered by tests. Deployment planning, launch checklist and backup runbooks are written.",
     contribution: "Developed the application end to end: data model, storefront, authentication, admin area, security hardening and tests.",
-    note: ""
+    note: "The live demo uses sample products and a throw-away database, and it runs on free hosting, so the first page can take a few seconds to load."
   },
   {
     id: "shoeadda", name: "ShoeAdda", category: "E-commerce / Web Development",
