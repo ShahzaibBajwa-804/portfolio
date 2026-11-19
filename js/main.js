@@ -96,7 +96,7 @@
     var stack = el("ul", { class: "pcard__stack" });
     p.stack.forEach(function (s) { stack.appendChild(el("li", { text: s })); });
     var card = el("button", {
-      class: "pcard reveal", type: "button", "data-project": p.id,
+      class: "pcard reveal" + (p.shot ? " pcard--feature" : ""), type: "button", "data-project": p.id,
       "aria-haspopup": "dialog", "aria-label": p.name + " — view project details",
       style: "--ac:" + p.accent + ";--rd:" + (i % 2) * 100 + "ms"
     }, [

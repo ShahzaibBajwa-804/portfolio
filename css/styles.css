@@ -381,3 +381,18 @@ body.modal-open { overflow: hidden; }
 .field select { width: 100%; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--text); font: inherit; }
 .field select:focus { outline: 2px solid var(--blue); outline-offset: 2px; }
 @media (max-width: 760px) { .services { grid-template-columns: 1fr; } }
+
+/* featured project card (has a screenshot): image left, text right */
+@media (min-width: 900px) {
+  .pcard--feature { grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr 1fr; column-gap: 40px; align-content: start; align-items: start; }
+  .pcard--feature .pcard__shot { grid-column: 1; grid-row: 1 / span 6; margin: 0; aspect-ratio: 16 / 10; height: auto; align-self: center; }
+  .pcard--feature > :not(.pcard__shot) { grid-column: 2; }
+  .pcard--feature .pcard__more { margin-top: 20px; }
+}
+
+/* wide screens: the three remaining projects sit in one row under the featured card */
+@media (min-width: 1100px) {
+  .projects { grid-template-columns: repeat(3, 1fr); }
+  .projects .pcard:not(.pcard--feature) { padding: 28px; }
+  .projects .pcard:not(.pcard--feature) h3 { font-size: 1.35rem; }
+}
