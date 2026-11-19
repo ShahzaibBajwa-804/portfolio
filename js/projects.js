@@ -24,10 +24,11 @@ window.PROJECTS = [
     id: "shoeadda", name: "ShoeAdda", category: "E-commerce / Web Development",
     kind: "Early development", accent: "#8b5cf6",
     summary: "An online footwear store for the Pakistani market, built around ordering by WhatsApp and cash on delivery.",
-    description: "ShoeAdda is designed around how people in Pakistan shop online: choose a pair, confirm the order over WhatsApp and pay on delivery. The back-end foundation is in place and the storefront pages are the next stage.",
+    description: "ShoeAdda is designed around how people in Pakistan shop online: choose a pair, confirm the order over WhatsApp and pay on delivery. I am building it in phases. The back end, customer accounts and the site shell are finished, and the catalogue, cart and checkout pages are the planned next stages.",
     features: [
       "Data models for catalogue, orders, reviews, contact messages and users",
       "Registration and login with CSRF protection and rate limiting",
+      "Shared site layout with navigation, footer, WhatsApp button and error pages",
       "WhatsApp order-message service and a Cash on Delivery order model",
       "Alembic migrations",
       "Check scripts that build the real app for each development phase"
